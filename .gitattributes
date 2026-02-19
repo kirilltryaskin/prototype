@@ -1,3 +1,11 @@
 # Protected custom files — do NOT merge from upstream
 # HTTP channel for Prototype platform
 nanobot/channels/http.py merge=ours
+
+# Workspace templates for new clients (Prototype-specific)
+workspace/SOUL.md merge=ours
+workspace/AGENTS.md merge=ours
+workspace/USER.md merge=ours
+workspace/TOOLS.md merge=ours
+workspace/HEARTBEAT.md merge=ours
+workspace/memory/MEMORY.md merge=ours
