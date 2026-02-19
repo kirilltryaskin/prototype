@@ -46,10 +46,14 @@ class HTTPChannel(BaseChannel):
                 msg = await self.bus.get_outbound_message()
                 
                 # Find pending request and complete it
+                logger.debug(f"HTTP outbound: thread={msg.thread_id}, text={msg.text[:100] if msg.text else 'empty'}...")
                 if msg.thread_id in self.pending_responses:
                     future = self.pending_responses.pop(msg.thread_id)
                     if not future.done():
                         future.set_result(msg.text)
+                    logger.info(f"HTTP response delivered for thread {msg.thread_id}")
+                else:
+                    logger.warning(f"HTTP outbound: no pending request for thread {msg.thread_id}")
                 
             except asyncio.CancelledError:
                 break
