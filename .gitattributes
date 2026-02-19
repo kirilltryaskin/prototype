@@ -1,0 +1,3 @@
+# Protected custom files — do NOT merge from upstream
+# HTTP channel for Prototype platform
+nanobot/channels/http.py merge=ours
